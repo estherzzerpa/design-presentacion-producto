@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>white & black</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- left tendra un color liso.
+        right tendra una imagen o video de la modelo con la ropa.  -->
+        <h2 class="i"> real fashion to you</h2>
+        <div class="left"></div>
+        <div class="right">
+            <video src="assets/pexels-вальдемар-10026607.mp4"  type="video/mp4" loop muted class="clip"></video>
+        </div>
+        <!-- el cuadro en absolute tendra la descripcion y la imagen de la prenda  -->
+        
+        <div class="absolute">
+           
+            <div class="flex_text">
+                <span>Name</span>
+                <span>collection</span>
+                <span>Actual</span>
+            </div>
+     
+            <div class="left_right">
+                <div class="img_name">
+                    <h1>IV <span>collection</span></h1>
+                    <img src="assets/pexels-monstera-7691223.jpg" alt="">
+                </div>
+
+                <div class="text_description">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Reiciendis, quisquam quos! Sint impedit amet harum reiciendis nesciunt nemo,
+                    excepturi pariatur alias quaerat aut dolore ullam suscipit autem maiores totam illum!
+                    </p>
+                </div>
+            </div>
+            <div class="footer">
+                <span>AGOSTO</span>
+                <span>01.08.22</span>
+                <span>EZ MODA</span>
+            </div>
+    
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+    integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+    <script>
+
+
+        // play video or pause
+        function playVideo(){
+
+            const video = document.querySelector(".clip")
+
+            video.addEventListener("mouseenter", ()=>{
+
+            video.play()
+            });
+
+            video.addEventListener("mouseout", ()=>{
+            video.pause()
+            });
+        }
+
+        playVideo()
+        
+        // transiciones 
+
+        TweenMax.from(".left",1.5,{
+            delay:.3,
+            opacity:0,
+            x:"-120%",
+            ease:Expo.ease
+        });
+
+        TweenMax.from(".right",1.5,{
+            delay:.3,
+            opacity:0,
+            x:"120%",
+            ease:Expo.ease
+        });
+
+        TweenMax.from(".absolute",1.5,{
+            delay:1.2,
+            opacity:0,
+            y:"-120%",
+            ease:Expo.ease
+        });
+
+        TweenMax.from(".text_description",1.5,{
+            delay:1.8,
+            opacity:0,
+            x:"130%",
+            // ease:Expo.easeInOut
+            ease:Expo.ease
+        });
+
+        TweenMax.from(".img_name h1",1.5,{
+            delay:2.5,
+            opacity:0,
+            y:"-120%",
+            ease:Expo.ease
+        });
+
+        TweenMax.from(".i",1.5,{
+            delay:2.5,
+            opacity:0,
+            y:"120%",
+            ease:Expo.ease
+        });
+
+    </script>
+
+</body>
+</html>
